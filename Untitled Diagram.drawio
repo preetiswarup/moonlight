@@ -1,0 +1,173 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="cLwqvkOq5_NIUHmS-RRq">
+    <mxGraphModel dx="1290" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cELoAPxVr8Mn17AUm24W-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Start" vertex="1">
+          <mxGeometry height="80" width="120" x="320" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;Step 1 - Open the page&lt;/div&gt;&lt;div&gt;Input: URL of the Wikipedia page-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Output: Wikipedia page fully loaded in the browser session&lt;/div&gt;&lt;div&gt;&lt;div&gt;Note:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Starts RPA&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;browse session&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="415" x="175" y="112" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;Step 2 -Loop&lt;/div&gt;&lt;div&gt;Input: 10 (the number of iterations to run)&lt;/div&gt;&lt;div&gt;Output: index variable that counts 1, 2, 3, 4, 5, 6, 7, 8, 9, 10&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="415" x="175" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="103" width="415" x="175" y="327" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;Step 3 - Extract HTML - Column: Year&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Input(DOM path): table.wikitable tbody tr:nth-child([index]) td:nth-child(1)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Output: year as text string, e.g. &quot;1930&quot; saved as → {year_text}&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Note: [index] is replaced by the current loop number — 1 for row 1, 2 for row 2, etc. &lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;td:nth-child(1) means: grab the 1st cell in that row&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="390" x="180" y="337" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="103" width="415" x="175" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;Step 4-&amp;nbsp; Parse number · (year only)&lt;/div&gt;&lt;div&gt;Input:&amp;nbsp; {year_text} = year as a text string, e.g. &quot;1930&quot;&lt;/div&gt;&lt;div&gt;Output: {year_int} = year as an integer number, e.g. 1930&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Note: converts the string &quot;1930&quot; into the number 1930 (Int data type)&lt;/div&gt;&lt;div&gt;{year_int} stored for this row&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="390" x="180" y="461" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="103" width="415" x="175" y="572" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-40" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="cELoAPxVr8Mn17AUm24W-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Step 5 - ExtractHTML · Column: Winner&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Input (DOM path): table.wikitable tbody tr:nth-child([index]) td:nth-child(3)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Output: winner country name as text, e.g. &quot;Uruguay&quot; saved as → {winner}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Note: td:nth-child(3) means: grab the 3rd cell in that row.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;The 2nd cell is the Host column — we skip it and go straight to the 3rd&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="410" x="180" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="415" x="175" y="697" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&lt;div&gt;Step 6 - Extract HTML · Column: Score&lt;/div&gt;&lt;div&gt;Input (DOM path): table.wikitable tbody tr:nth-child([index]) td:nth-child(4)&lt;/div&gt;&lt;div&gt;Output: final score as text, e.g. &quot;4-2&quot; saved as → {score}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Note: td:nth-child(4) = 4th cell in that row (Score column)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="390" x="180" y="697" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="415" x="175" y="811" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;Step 7 - Extract HTML · Column: Runners-up&lt;/div&gt;&lt;div&gt;Input (DOM path) : table.wikitable tbody tr:nth-child([index]) td:nth-child(5)&lt;/div&gt;&lt;div&gt;Output: runners-up country as text, e.g. &quot;Argentina&quot; saved as {runners_up}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Note: td:nth-child(5) = 5th cell in that row (Runners-up column)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="93" width="400" x="180" y="811" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="57" width="415" x="175" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;Step 8 - Call API (configured in Postman)&lt;/div&gt;&lt;div&gt;Input:&amp;nbsp; {all_10_rows} = the 10 rows collected by the loop above&lt;/div&gt;&lt;div&gt;Output: HTTP 200 OK + 10 rows written to Google Sheet&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="52" width="400" x="180" y="938" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-21" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="End" vertex="1">
+          <mxGeometry height="80" width="120" x="334" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-24" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="920" />
+              <mxPoint x="640" y="920" />
+              <mxPoint x="640" y="870" />
+              <mxPoint x="640" y="270" />
+              <mxPoint x="640" y="200" />
+              <mxPoint x="610" y="200" />
+              <mxPoint x="80" y="200" />
+            </Array>
+            <mxPoint x="80" y="480" as="sourcePoint" />
+            <mxPoint x="80" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-26" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="cELoAPxVr8Mn17AUm24W-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="365" y="93" as="sourcePoint" />
+            <mxPoint x="365" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-27" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.444;exitY=1.008;exitDx=0;exitDy=0;exitPerimeter=0;" target="cELoAPxVr8Mn17AUm24W-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="383.26" y="192.64" as="sourcePoint" />
+            <mxPoint x="383.26" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-31" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-8" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="320" as="sourcePoint" />
+            <mxPoint x="383" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-33" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="430" as="sourcePoint" />
+            <mxPoint x="380" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-34" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-12" style="endArrow=classic;html=1;rounded=0;exitX=0.513;exitY=0.957;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="560" as="sourcePoint" />
+            <mxPoint x="380" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-37" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-14" style="endArrow=classic;html=1;rounded=0;entryX=0.528;entryY=0.032;entryDx=0;entryDy=0;entryPerimeter=0;" target="cELoAPxVr8Mn17AUm24W-16" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="386" y="680" as="sourcePoint" />
+            <mxPoint x="390" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-38" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-16" style="endArrow=classic;html=1;rounded=0;exitX=0.537;exitY=0.978;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="800" as="sourcePoint" />
+            <mxPoint x="390" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-39" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-18" style="endArrow=classic;html=1;rounded=0;exitX=0.523;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.525;entryY=0.064;entryDx=0;entryDy=0;entryPerimeter=0;" target="cELoAPxVr8Mn17AUm24W-20" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="910" as="sourcePoint" />
+            <mxPoint x="390" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-43" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-20" style="endArrow=classic;html=1;rounded=0;exitX=0.527;exitY=0.987;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="1000" as="sourcePoint" />
+            <mxPoint x="391" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-44" edge="1" parent="1" source="cELoAPxVr8Mn17AUm24W-17" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.634;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="870" />
+              <mxPoint x="680" y="280" />
+            </Array>
+            <mxPoint x="680" y="871" as="sourcePoint" />
+            <mxPoint x="592" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Georgia;" value="&lt;span style=&quot;text-align: start; white-space: nowrap;&quot;&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 11px;&quot;&gt;⟳ LOOP - runs 10 times, once per table row (index 1 → 10)&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="320" x="250" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-47" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=Georgia;fontSize=11;" value="&lt;div&gt;&lt;font face=&quot;Helvetica&quot;&gt;Note: if error&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-family: Helvetica; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;in a loop run,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Helvetica&quot;&gt;skip to next&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-family: Helvetica; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;index. Do not s&lt;/span&gt;&lt;span style=&quot;font-family: Helvetica; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;top the run.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="640" y="237" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=11;" value="loop back — repeat for next row until index = 10" vertex="1">
+          <mxGeometry height="55" width="90" x="680" y="642" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;p&gt;&lt;span style=&quot;text-align: start; white-space: nowrap;&quot;&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 11px;&quot;&gt;HTTP 200 OK received&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="30" width="130" x="440" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=11;" value="&lt;span style=&quot;font-family: &amp;quot;Anthropic Sans&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, sans-serif; text-align: start; white-space: nowrap;&quot;&gt;{all_10_rows} passed to API step&lt;/span&gt;" vertex="1">
+          <mxGeometry height="22" width="180" x="397" y="919" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-51" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Text" vertex="1">
+          <mxGeometry height="30" width="60" x="430" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-53" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=11;" value="&lt;div&gt;index = current row number,&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;for each row, run &#39;Step 3-7&#39; extract in order&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;font&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="80" x="90" y="211" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-family: &amp;quot;Anthropic Sans&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, sans-serif; text-align: start; white-space: nowrap;&quot;&gt;{year_text} passes to Parse number&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="200" x="410" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-family: &amp;quot;Anthropic Sans&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, sans-serif; text-align: start; white-space: nowrap;&quot;&gt;{year_int} stored for this row&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="200" x="400" y="549" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-family: &amp;quot;Anthropic Sans&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, sans-serif; text-align: start; white-space: nowrap;&quot;&gt;{winner} stored for this row&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="200" x="398" y="673" as="geometry" />
+        </mxCell>
+        <mxCell id="cELoAPxVr8Mn17AUm24W-58" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-family: &amp;quot;Anthropic Sans&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, sans-serif; text-align: start; white-space: nowrap;&quot;&gt;{score} stored for this row&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="200" x="393" y="788" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
